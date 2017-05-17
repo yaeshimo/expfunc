@@ -6,16 +6,16 @@ export function name from go source file
 
 Usage:
 ------
-output function name:  
+output the function names:  
 `expfunc -file /path/to/src.go`
 
 with Test for testing  
 `expfunc -test -file /path/to/src.go`
 
-export only  
+only exported function  
 `expfunc -exported -file /path/to/src.go`
 
-show help  
+help  
 `expfunc --help`
 
 
