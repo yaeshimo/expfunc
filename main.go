@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"log"
 	"strings"
 	"unicode"
+	"os"
+	"go/ast"
+	"go/parser"
+	"go/token"
 )
 
 type option struct {
@@ -30,12 +31,17 @@ func (opt *option) init() {
 
 	flag.Parse()
 	if flag.NArg() != 0 {
-		log.Fatal("invalid args: ", flag.Args())
+		if opt.file == "" && flag.NArg() == 1 {
+			opt.file = flag.Arg(0)
+		} else {
+			log.Fatal("invalid args: ", flag.Args())
+		}
 	}
 }
 
 func init() {
 	log.SetPrefix("expfunc: ")
+	log.SetOutput(os.Stderr)
 	log.SetFlags(log.Lshortfile)
 
 	opt.init()
