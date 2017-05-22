@@ -30,6 +30,6 @@ Flags:
 
 Install:
 --------
-`go get github.com/dorymint/expfunc`
+`go get github.com/kamisari/expfunc`
 
 
