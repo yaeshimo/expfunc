@@ -3,13 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
-	"strings"
-	"unicode"
-	"os"
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"log"
+	"os"
+	"strings"
+	"unicode"
 )
 
 type option struct {
@@ -17,6 +17,7 @@ type option struct {
 	exported bool
 	withtest bool
 }
+
 var opt = &option{}
 
 func (opt *option) init() {
@@ -48,9 +49,7 @@ func init() {
 }
 
 func tmplTest(fn string) string {
-	return `func Test` + strings.Title(fn) + `(t *testing.T) {
-	t.Fatal()
-}`
+	return `func Test` + strings.Title(fn) + `(t *testing.T) { t.Fatal() }`
 }
 
 func main() {
